@@ -20,6 +20,7 @@ $grs = [prefix('grs'), get_option(prefix('grs'))];
 $sd = [prefix('sd'), get_option(prefix('sd'))];
 
 $snippet = str_replace('[title]', 'Post title', $sd[1]);
+$snippet = str_replace('[permalink]', get_bloginfo('wpurl'), $snippet);
 $snippet = str_replace('[best]', '5', $snippet);
 $snippet = str_replace('[score]', '4.3', $snippet);
 $snippet = str_replace('[count]', '20', $snippet);
@@ -47,6 +48,7 @@ return [
             sprintf(__('Provide the %s structure.', 'kk-star-ratings'), '<code>ld+json</code>').'<br>',
             __('The following variables are available:', 'kk-star-ratings').'<br>',
             sprintf(__('%s Post title.', 'kk-star-ratings'), '<code>[title]</code>'),
+			sprintf(__('%s Post permalink.', 'kk-star-ratings'), '<code>[permalink]</code>'),
             sprintf(__('%s Average post ratings.', 'kk-star-ratings'), '<code>[score]</code>'),
             sprintf(__('%s Number of votes casted.', 'kk-star-ratings'), '<code>[count]</code>'),
             sprintf(__('%s Total amount of stars.', 'kk-star-ratings'), '<code>[best]</code>'),
