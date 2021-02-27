@@ -52,7 +52,8 @@ config([
     "@context": "https://schema.org/",
     "@type": "CreativeWorkSeries",
     "name": "[title]",
-    "name": "[permalink]",
+    "url": "[permalink]",
+	"image": [thumbnail],
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "[score]",

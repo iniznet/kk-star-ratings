@@ -199,7 +199,8 @@ function structured_data()
     ) {
         $id = get_post_field('ID');
         $title = htmlentities(get_post_field('post_title'));
-        $url = htmlentities(get_the_permalink());
+		$url = htmlentities(get_the_permalink());
+		$thumbnail = htmlentities(get_the_post_thumbnail_url());
         $best = max((int) get_option(prefix('stars')), 1);
         $count = count_filter(null, $id, null);
         $score = score_filter(null, $best, $id, null);
@@ -208,7 +209,8 @@ function structured_data()
             echo '<script type="application/ld+json">';
             $sd = get_option(prefix('sd'));
             $sd = str_replace('[title]', $title, $sd);
-            $sd = str_replace('[permalink]', $url, $sd);
+			$sd = str_replace('[permalink]', $url, $sd);
+			$sd = str_replace('[thumbnail]', $thumbnail, $sd);
             $sd = str_replace('[best]', $best, $sd);
             $sd = str_replace('[count]', $count, $sd);
             $sd = str_replace('[score]', $score, $sd);
